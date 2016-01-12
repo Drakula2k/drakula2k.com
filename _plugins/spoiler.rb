@@ -3,6 +3,7 @@ module Jekyll
     def initialize (tag_name, markup, tokens)
       super
       @summary = markup.strip
+      @summary = @summary + ' (click to expand)'
     end
 
     def render(context)
