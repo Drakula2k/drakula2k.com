@@ -17,3 +17,4 @@ github_username:  Drakula2k
 
 # Build settings
 markdown: kramdown
+exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md']
