@@ -19,6 +19,7 @@ desc "Generate and publish blog to gh-pages"
 task :publish => [:generate] do
   Dir.mktmpdir do |tmp|
     system "mv _site/* #{tmp}"
+    system "git stash save 'gh-pages update'"
     system "git checkout -B gh-pages"
     system "rm -rf *"
     system "mv #{tmp}/* ."
@@ -27,6 +28,7 @@ task :publish => [:generate] do
     system "git commit -am #{message.shellescape}"
     system "git push origin gh-pages --force"
     system "git checkout master"
+    system "git stash pop"
     system "echo yolo"
   end
 end
